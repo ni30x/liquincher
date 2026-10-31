@@ -1,0 +1,6 @@
+{
+  "name": "Launcher",
+  "description": "A clean, customizable open-source launcher",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
