@@ -46,3 +46,8 @@ updates:
       prefix: "chore"
       prefix-development: "chore"
       include: "scope"
+    ignore:
+      - dependency-name: "actions/checkout"
+      - dependency-name: "actions/setup-java"
+      - dependency-name: "actions/upload-artifact"
+      - dependency-name: "gradle/actions"
