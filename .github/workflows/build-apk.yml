@@ -26,12 +26,9 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
 
-      # Build BOTH flavors explicitly instead of the bare `assembleDebug`
-      # aggregate task. This is what was already happening implicitly,
-      # we're just making the task names (and therefore the output paths)
-      # explicit so the next step knows where to look.
-      - name: Build debug APKs (foss + gplay)
-        run: ./gradlew assembleFossDebug assembleGplayDebug --stacktrace
+      # Build only the FOSS flavor (main distribution, no Google Play deps)
+      - name: Build debug APK (foss)
+        run: ./gradlew assembleFossDebug --stacktrace
 
       # Upload foss flavor
       - name: Upload foss debug APK
@@ -39,14 +36,5 @@ jobs:
         with:
           name: app-foss-debug
           path: app/build/outputs/apk/foss/debug/app-foss-debug.apk
-          if-no-files-found: error
-          compression-level: 6
-
-      # Upload gplay flavor
-      - name: Upload gplay debug APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-gplay-debug
-          path: app/build/outputs/apk/gplay/debug/app-gplay-debug.apk
           if-no-files-found: error
           compression-level: 6
