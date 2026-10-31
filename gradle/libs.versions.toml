@@ -21,7 +21,7 @@ app-build-kotlinJVMTarget = "17"
 #liquid glass
 backdrop = "2.0.1"
 #Compose
-compose-bom = "2024.10.01"
+compose-bom = "2026.09.00"
 [libraries]
 #Room
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
